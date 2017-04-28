@@ -1,0 +1,143 @@
+// font imports
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css)
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans)
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500)
+
+// declare variables
+$bg: #E8F1F2
+$font-base: #13293D
+$link-color: #1B98E0
+$link-hover: #13293D
+$font-heading: #006494
+$font-family: 'Josefin Sans', cwtexyen, sans-serif
+$heading-font: 'Source Code Pro', monospace
+$font-heading-size: 50px
+$tag-pri: #13293D
+$tag-sec: #E8F1F2
+$h1-break-width: 550px
+
+// mixins
+=tag($back, $font)
+  display: inline-block
+  padding: 8px
+  background: $back
+  color: $font
+  margin: 5px
+  border-radius: 5px
+// keyframes
+@keyframes change-text
+  0%, 55%, 100%
+    transform: translateY(-50%)
+  5%, 50%
+    transform: translateY(-100%)
+@keyframes typing
+  0%
+    width: 0
+@keyframes text-blink
+  50%
+    border-color: transparent
+// document css
+body
+  box-sizing: border-box
+  color: $font-base
+  font-family: $font-family
+a
+  text-decoration: none
+  color: $link-color
+  &:hover
+    color: $link-hover
+
+.wrapper
+  margin: 5% 10%
+
+.heading
+  background-color: $bg
+  height: 20%
+  padding: 5%
+  text-align: center
+  h1
+    margin: 0 auto
+    font-family: $heading-font
+    font-size: $font-heading-size
+    animation: 8s typing steps(16, end), 0.5s text-blink step-end infinite
+    width: 16ch
+    white-space: nowrap
+    overflow: hidden
+    border-right: 3px solid
+    @media screen and (max-width: $h1-break-width)
+      font-size: 30px
+.sm-name
+  display: none
+  color: $font-heading
+  @media screen and (max-width: $h1-break-width)
+    display: block
+.name
+  margin-top: 10px
+  height: $font-heading-size
+  overflow: hidden
+  @media screen and (max-width: $h1-break-width)
+    display: none
+  ul
+    list-style: none
+    padding: 0
+    color: $font-heading
+    font-size: $font-heading-size
+    animation: 8s change-text linear infinite
+    li
+      line-height: $font-heading-size
+
+.social ul
+  list-style: none
+  padding-left: 0
+  a
+    color: $font-base
+  li
+    display: inline-block
+    margin: 0 5px
+.block
+
+  h2::first-letter
+    font-size: 30px
+    color: #006494
+  h2
+    font-family: $heading-font
+    border-bottom: 2px solid
+  ul
+    list-style: none
+    padding-left: 0
+
+.info
+  .email::before
+    content: 'robinusantara@gmail.com'
+
+.pri-tag
+  +tag($tag-pri, $tag-sec)
+
+.sec-tag
+  +tag($tag-sec, $tag-pri)
+
+.about
+  p::before
+    content: '\00a0\00a0\00a0\00a0'
+
+.degree, .exp-item
+  h3
+    margin: 10px 0 5px 0
+    padding: 0
+  p
+    margin: 0
+    padding: 0
+.exp-item
+  ul
+    list-style: square
+    padding-left: 15px
+    li
+      padding-top: 5px
+.profile
+  background-size: 100%
+  border-radius: 50%
+  margin: 20px auto
+  width: 100px
+  height: 100px
+  display: inline-block
+  background-image: url(https://www.linkedin.com/mpr/mpr/AAEAAQAAAAAAAAfIAAAAJDA4Y2Y1MDQ1LTRmYmQtNDZjZi1iM2RjLTQ2Zjc0NDk2NWE3Yw.jpg)
